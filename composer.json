@@ -1,0 +1,23 @@
+{
+	"autoload": {
+        "psr-4": {
+            "Core\\": "lib2",
+            "Model\\": "Model"
+        },
+        "files": [
+            "functions.php",
+            "bootstrap.php"
+        ]
+    },
+    "minimum-stability": "dev",
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../dbg"
+        }
+    ],
+    "require": {
+        "rolland/dbg": "*",
+		"flourish/flourish": "^0.9.0@dev"
+    }
+}

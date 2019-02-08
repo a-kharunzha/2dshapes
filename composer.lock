@@ -1,0 +1,86 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "0251b98152e5f18551585eb4b3d8c836",
+    "packages": [
+        {
+            "name": "flourish/flourish",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/flourishlib/flourish-classes.git",
+                "reference": "60f80f1fbf10dea5cb05f98e9af3f0f96d9d9101"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/flourishlib/flourish-classes/zipball/60f80f1fbf10dea5cb05f98e9af3f0f96d9d9101",
+                "reference": "60f80f1fbf10dea5cb05f98e9af3f0f96d9d9101",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.9.x-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "."
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Will Bond",
+                    "email": "will@wbond.net",
+                    "homepage": "http://wbond.net/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A collection of classes for general web development, with a particular focus on compatibility, portability and security",
+            "homepage": "http://flourishlib.com/",
+            "time": "2014-02-26T18:40:29+00:00"
+        },
+        {
+            "name": "rolland/dbg",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../dbg",
+                "reference": "a2bdf19b416b8f6ebfab059f4dcb17d7ea8179c3",
+                "shasum": null
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Rolland\\": "./src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Alex Kharunzha",
+                    "email": "rolland@alterego.biz.ua"
+                }
+            ]
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "flourish/flourish": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
