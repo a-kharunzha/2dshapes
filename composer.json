@@ -3,7 +3,8 @@
         "psr-4": {
             "Core\\": "lib2",
             "Model\\": "Model",
-            "Command\\": "commands"
+            "Command\\": "commands",
+            "Test\\": "tests"
         },
         "files": [
             "functions.php",
@@ -21,5 +22,8 @@
         "rolland/dbg": "*",
 		"flourish/flourish": "^0.9.0@dev",
 		"symfony/console": "^4.3@dev"
-    }
+    },
+	"require-dev": {
+		"phpunit/phpunit": "7.5.x-dev"
+	}
 }
