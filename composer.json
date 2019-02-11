@@ -2,7 +2,8 @@
 	"autoload": {
         "psr-4": {
             "Core\\": "lib2",
-            "Model\\": "Model"
+            "Model\\": "Model",
+            "Command\\": "commands"
         },
         "files": [
             "functions.php",
@@ -18,6 +19,7 @@
     ],
     "require": {
         "rolland/dbg": "*",
-		"flourish/flourish": "^0.9.0@dev"
+		"flourish/flourish": "^0.9.0@dev",
+		"symfony/console": "^4.3@dev"
     }
 }
