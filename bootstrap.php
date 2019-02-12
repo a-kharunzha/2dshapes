@@ -18,3 +18,14 @@ fORMDatabase::attach($DB);
 // это хук чтобы метод $news->listDatenow(); не ругался
 // хорошо бы это писать в самой модели Datenow, но вот тот класс лоадится автозагрузкой уже поде того, как резолвится имя модели
 \fGrammar::addSingularPluralRule('Datenow', 'Datenow');
+
+/** 
+ * красивая страничка php-ошибок для разработки
+ */
+if(getenv('ENV') == 'dev'){
+	$whoops = new \Whoops\Run;
+	$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+	$whoops->register();
+}else{
+	/** @todo: set own error page?? */
+}
