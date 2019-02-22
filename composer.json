@@ -2,6 +2,7 @@
 	"autoload": {
         "psr-4": {
             "Core\\": "lib2",
+            "SomeLib\\": "lib1",
             "Model\\": "Model",
             "Command\\": "commands",
             "Test\\": "tests"
