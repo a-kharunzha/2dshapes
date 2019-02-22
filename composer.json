@@ -8,8 +8,7 @@
             "Test\\": "tests"
         },
         "files": [
-            "functions.php",
-            "bootstrap.php"
+            "functions.php"
         ]
     },
     "minimum-stability": "dev",

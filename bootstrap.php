@@ -1,4 +1,7 @@
 <?
+
+require_once(__DIR__.'/vendor/autoload.php');
+
 $config = require('config.php');
 
 // connect to DB
@@ -29,3 +32,9 @@ if(getenv('ENV') == 'dev'){
 }else{
 	/** @todo: set own error page?? */
 }
+
+
+$containerBuilder = new DI\ContainerBuilder;
+$containerBuilder->addDefinitions(__DIR__ . '/config_di.php');
+$container = $containerBuilder->build();
+return $container;
