@@ -531,12 +531,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "b32588547642e984501c5dfbd4a1e8c204786c20"
+                "reference": "122a9f0a0c653ecba733ce3b330b27035042d9c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/b32588547642e984501c5dfbd4a1e8c204786c20",
-                "reference": "b32588547642e984501c5dfbd4a1e8c204786c20",
+                "url": "https://api.github.com/repos/symfony/console/zipball/122a9f0a0c653ecba733ce3b330b27035042d9c6",
+                "reference": "122a9f0a0c653ecba733ce3b330b27035042d9c6",
                 "shasum": ""
             },
             "require": {
@@ -596,7 +596,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2019-02-19T18:29:52+00:00"
+            "time": "2019-02-23T15:22:31+00:00"
         },
         {
             "name": "symfony/contracts",
@@ -2621,12 +2621,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "7a0b6b2f95c2eea838e2169199d138a8b65ea82c"
+                "reference": "c7c3aff2c9fcf217f2b02551e63daedbe2f8ba4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/7a0b6b2f95c2eea838e2169199d138a8b65ea82c",
-                "reference": "7a0b6b2f95c2eea838e2169199d138a8b65ea82c",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/c7c3aff2c9fcf217f2b02551e63daedbe2f8ba4d",
+                "reference": "c7c3aff2c9fcf217f2b02551e63daedbe2f8ba4d",
                 "shasum": ""
             },
             "require": {
@@ -2689,7 +2689,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2019-02-22T08:46:13+00:00"
+            "time": "2019-02-23T15:22:31+00:00"
         },
         {
             "name": "theseer/tokenizer",
