@@ -14,8 +14,8 @@
     "minimum-stability": "dev",
     "repositories": [
         {
-            "type": "path",
-            "url": "../dbg"
+            "type": "vcs",
+            "url": "https://github.com/a-kharunzha/dbg"
         }
     ],
     "require": {
