@@ -1,7 +1,9 @@
 <?php declare(strict_types=1);
 
 use Shapes\Brick;
+use Shapes\BrickStorage;
 use Shapes\Wall;
+use Shapes\WallConstructor;
 
 if (php_sapi_name() != 'cli') {
     exit('only for cli use');
@@ -49,17 +51,22 @@ for ($i = 0; $i < $wHeight; $i++) {
 $wall = new Wall($wWidth, $wHeight, $matrix);
 // available bricks
 $brickTypesCount = intval(array_shift($lines));
-$bricks = [];
+$bricks = new BrickStorage();
 for ($i = 0; $i < $brickTypesCount; $i++) {
     $line = array_shift($lines);
     list($bWeight, $bHeight, $bCount) = intArr(explode(' ', $line));
-    $bricks[] = new Brick($bWeight, $bHeight, $bCount);
+    $bricks->addBrick(new Brick($bWeight, $bHeight), $bCount);
 }
 ///////////////////////
 /// looking for possibility of wall construction
 ///////////////////////
 $wallIsPossible = false;
 
+// @todo: divide wall into several smaller walls if there are parts which is not connected to each other on cell side
+// then sort and try to solve each wall beginning from smallest. It will speed up solution for walls like test2
+
+$wallConstructor = new WallConstructor($wall, $bricks);
+$wallIsPossible = $wallConstructor->constructWall();
 
 ///////////////////////
 /// return answer
