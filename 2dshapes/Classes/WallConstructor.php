@@ -33,9 +33,9 @@ class WallConstructor
         if ($this->wall->isClean()) {
             return true;
         }
+        $placePoint = $this->getBasicPlacementPoint();
         foreach ($this->bricks->getBrickTypes() as $type) {
             $brick = $this->bricks->getBrickShapeByType($type);
-            $placePoint = $this->getBasicPlacementPoint();
             // check if we found no place
             if ($placePoint instanceof NullPlacePoint) {
                 continue;
