@@ -20,19 +20,29 @@ class WallConstructor
         $this->bricks = $bricks;
     }
 
-    public function constructWall()
+    /**
+     * looks for the way of wall construction from given brick storage
+     *
+     * way is to try to place each brick. in two orientations if rotatable
+     * if is not possible to place any brick, we consider what wall construction is impossible
+     *
+     */
+    public function constructWall(): bool
     {
         // is wall is already clean, wa can "build" from any set of bricks
         if ($this->wall->isClean()) {
             return true;
         }
-        // way is to try to place each brick. in two positions if rotatable
-        // if is not possible to place any brick, we consider what wall construction is impossible
         foreach ($this->bricks->getBrickTypes() as $type) {
             $brick = $this->bricks->getBrickShapeByType($type);
             $placePoint = $this->getBasicPlacementPoint();
+            // check if we found no place
+            if ($placePoint instanceof NullPlacePoint) {
+                continue;
+            }
+            // create brick placed on found position of wall
             $placedBrick = new PositionedBrick($brick->getWidth(), $brick->getHeight(), $placePoint);
-            $subWallConstruct = $this->constructWithAnyBrickPosition($placedBrick);
+            $subWallConstruct = $this->constructWithAnyBrickOrientation($placedBrick);
             // if construction is successful - we can return it already
             if ($subWallConstruct) {
                 return $subWallConstruct;
@@ -41,7 +51,14 @@ class WallConstructor
         return false;
     }
 
-    protected function constructWithAnyBrickPosition(PositionedBrick $positionedBrick)
+    /**
+     * tries to place brick in two different orientations and contruct wall if it is possible
+     *
+     * @param PositionedBrick $positionedBrick
+     *
+     * @return bool
+     */
+    protected function constructWithAnyBrickOrientation(PositionedBrick $positionedBrick): bool
     {
         // placing without rotation
         $subWallConstruct = $this->placeBrickAndConstructSubWall($positionedBrick);
@@ -57,6 +74,16 @@ class WallConstructor
         return $subWallConstruct;
     }
 
+    /**
+     * tries to place brick in given orientation and construct wall
+     *
+     * Way is create new wall where given brick shape is removed
+     * and construct it using storage without already used brick
+     *
+     * @param PositionedBrick $positionedBrick
+     *
+     * @return bool
+     */
     protected function placeBrickAndConstructSubWall(PositionedBrick $positionedBrick)
     {
         $canBePlaced = $this->canPlaceBrick($positionedBrick);
@@ -74,21 +101,33 @@ class WallConstructor
         return $subWallConstructor->constructWall();
     }
 
+    /**
+     * @return PlacePoint
+     */
     protected function getBasicPlacementPoint()
     {
-        // @todo: make placement strategy configurable
+        // @todo: make placement strategy configurable ?
         // now using top - left strategy
         for ($lineNum = 1; $lineNum <= $this->wall->getHeight(); $lineNum++) {
-            for ($cell = 1; $cell <= $this->wall->getWidth(); $cell++) {
-                if ($this->wall->cellIsFilled($lineNum, $cell)) {
-                    return [$lineNum, $cell];
+            for ($column = 1; $column <= $this->wall->getWidth(); $column++) {
+                if ($this->wall->cellIsFilled($lineNum, $column)) {
+                    return new PlacePoint($lineNum, $column);
                 }
             }
         }
-        return [-1,-1];
+        return new NullPlacePoint(-1, -1);
     }
 
-    private function canPlaceBrick(PositionedBrick $brick)
+    /**
+     * check if we can place given brick on it's declared position inside wall
+     *
+     * do not checks other orientations of brick
+     *
+     * @param PositionedBrick $brick
+     *
+     * @return bool
+     */
+    protected function canPlaceBrick(PositionedBrick $brick)
     {
         $areaUnderBrick = $this->wall->getSubWall($brick);
         // get from each object matrix of values as simple multirow 1/0 string and compare

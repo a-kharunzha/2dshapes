@@ -10,7 +10,6 @@ class Brick implements MeasurableInterface, MatrixInterface
      */
     private $width;
 
-
     /**
      * @var int
      */
@@ -22,7 +21,14 @@ class Brick implements MeasurableInterface, MatrixInterface
         $this->height = $height;
     }
 
-    public function getType()
+    /**
+     * gives unique string description of brick type ignoring orientation
+     *
+     * two differently oriented brick with same size are considered as one type
+     *
+     * @return string
+     */
+    public function getType(): string
     {
         $size = [$this->width, $this->height];
         // always consider width bigger when height even brick is rotated
@@ -30,12 +36,20 @@ class Brick implements MeasurableInterface, MatrixInterface
         return implode('|', $size);
     }
 
+    /**
+     * checks if brick rotation can change it's dimensions
+     *
+     * @return bool
+     */
     public function isRotatable()
     {
         return $this->width != $this->height;
     }
 
-    public function rotate()
+    /**
+     * swaps width and height of brick
+     */
+    public function rotate(): void
     {
         $temp = $this->width;
         $this->width = $this->height;
@@ -43,7 +57,7 @@ class Brick implements MeasurableInterface, MatrixInterface
     }
 
     /**
-     * @return int
+     * @inheritDoc
      */
     public function getWidth(): int
     {
@@ -51,13 +65,16 @@ class Brick implements MeasurableInterface, MatrixInterface
     }
 
     /**
-     * @return int
+     * @inheritDoc
      */
     public function getHeight(): int
     {
         return $this->height;
     }
 
+    /**
+     * @inheritDoc
+     */
     public function getMatrixString(): string
     {
         $parts = [];

@@ -1,11 +1,18 @@
 <?php
 
-
 namespace Shapes;
-
 
 interface PositionInterface
 {
-    public function getRow();
-    public function getColumn();
+    /**
+     * returns 1-based number of string in matrix
+     * @return int
+     */
+    public function getRow(): int;
+
+    /**
+     * returns 1-based number of column in matrix
+     * @return int
+     */
+    public function getColumn(): int;
 }

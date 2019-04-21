@@ -1,36 +1,33 @@
 <?php
 
-
 namespace Shapes;
 
 class PositionedBrick extends Brick implements AreaInterface
 {
     /**
-     * @var array
+     * @var PositionInterface
      */
     private $placePoint;
 
-    /**
-     * PlacedBrick constructor.
-     *
-     * @param int $width
-     * @param int $height
-     * @param array $placePoint
-     */
-    public function __construct(int $width, int $height, array $placePoint)
+    public function __construct(int $width, int $height, PositionInterface $placePoint)
     {
         parent::__construct($width, $height);
-        // @todo: replace array with object
         $this->placePoint = $placePoint;
     }
 
-    public function getRow()
+    /**
+     * @inheritDoc
+     */
+    public function getRow(): int
     {
-        return $this->placePoint[0];
+        return $this->placePoint->getRow();
     }
 
-    public function getColumn()
+    /**
+     * @inheritDoc
+     */
+    public function getColumn(): int
     {
-        return $this->placePoint[1];
+        return $this->placePoint->getColumn();
     }
 }

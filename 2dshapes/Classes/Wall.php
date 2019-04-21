@@ -3,38 +3,38 @@
 
 namespace Shapes;
 
-use Exception;
-
+/**
+ * defines size and structure of wall
+ */
 class Wall implements MeasurableInterface, MatrixInterface
 {
 
     /**
+     * count of columns in wall matrix
      * @var int
      */
     private $width;
     /**
+     * count of rows in wall matrix
      * @var int
      */
     private $height;
+
     /**
+     * 2-dimensional 0-based matrix of 0/1 values
      * @var array
      */
     private $matrix;
 
-    private $matrixString;
-
     public function __construct(int $width, int $height, array $matrix)
     {
-
         $this->width = $width;
         $this->height = $height;
         $this->matrix = $matrix;
-        //
-        $this->matrixString = $this->getMatrixString();
     }
 
     /**
-     * @return int
+     * @inheritDoc
      */
     public function getWidth(): int
     {
@@ -42,24 +42,40 @@ class Wall implements MeasurableInterface, MatrixInterface
     }
 
     /**
-     * @return int
+     * @inheritDoc
      */
     public function getHeight(): int
     {
         return $this->height;
     }
 
-    public function cellIsFilled(int $lineNum, int $cell): bool
+    /**
+     *
+     * @param int $lineNum 1-based number of matrix line
+     * @param int $column 1-based number of matrix column
+     *
+     * @return bool
+     * @throws InvalidCellCoordinatesException if coordinates are outside matrix
+     */
+    public function cellIsFilled(int $lineNum, int $column): bool
     {
-        $row = $lineNum - 1;
-        $column = $cell - 1;
-        if (!isset($this->matrix[$row][$column])) {
-            // @todo: custom exception class
-            throw new Exception('Wall cell coordinates is invalid');
+        $rowOffset = $lineNum - 1;
+        $columnOffset = $column - 1;
+        if (!isset($this->matrix[$rowOffset][$columnOffset])) {
+            throw new InvalidCellCoordinatesException('Wall cell coordinates is invalid');
         }
-        return !empty($this->matrix[$row][$column]);
+        return !empty($this->matrix[$rowOffset][$columnOffset]);
     }
 
+    /**
+     * cuts specified area from wall and creates new wall from that part
+     *
+     * ignores cells of area which are outside of initial wall
+     *
+     * @param AreaInterface $area
+     *
+     * @return Wall
+     */
     public function getSubWall(AreaInterface $area): Wall
     {
         $newMatrix = [];
@@ -78,6 +94,9 @@ class Wall implements MeasurableInterface, MatrixInterface
         return new static($area->getWidth(), $area->getHeight(), $newMatrix);
     }
 
+    /**
+     * @inheritDoc
+     */
     public function getMatrixString(): string
     {
         return implode("\n", array_map(function ($row) {
@@ -85,6 +104,13 @@ class Wall implements MeasurableInterface, MatrixInterface
         }, $this->matrix));
     }
 
+    /**
+     * returns new wall where given area is replaced with 0
+     *
+     * @param AreaInterface $area
+     *
+     * @return Wall
+     */
     public function withClearedArea(AreaInterface $area): Wall
     {
         $newMatrix = $this->matrix;
@@ -101,7 +127,7 @@ class Wall implements MeasurableInterface, MatrixInterface
     }
 
     /**
-     * checks that wall does not have any bricks
+     * checks if wall does not have any bricks
      * @return bool
      */
     public function isClean()
