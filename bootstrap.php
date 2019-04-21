@@ -4,6 +4,9 @@ require_once(__DIR__.'/vendor/autoload.php');
 
 $config = require('config.php');
 
+// фоллбек для командной строки
+$_SERVER['DOCUMENT_ROOT'] = $_SERVER['DOCUMENT_ROOT'] ?: realpath(__DIR__);
+
 // connect to DB
 global $DB;
 $DB  = new fDatabase(
@@ -16,13 +19,13 @@ $DB  = new fDatabase(
 );
 
 // attach connect to ORM
-fORMDatabase::attach($DB);
+\fORMDatabase::attach($DB);
 
 // это хук чтобы метод $news->listDatenow(); не ругался
 // хорошо бы это писать в самой модели Datenow, но вот тот класс лоадится автозагрузкой уже поде того, как резолвится имя модели
 \fGrammar::addSingularPluralRule('Datenow', 'Datenow');
 
-/** 
+/**
  * красивая страничка php-ошибок для разработки
  */
 if(getenv('ENV') == 'dev'){
