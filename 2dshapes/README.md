@@ -39,19 +39,20 @@ yes
 #### design specification
 dev environment is php 7.2
 
-used solving algorithm is recursive search of combination of input 2d shapes witch can be combined into wall.  
-firstly, data is read from input and turned into two main objects - Wall and BrickStorage  
+Used solving algorithm is recursive search of combination of input 2d given witch can be combined into wall.  
+Firstly, data is read from input and turned into two main objects - Wall and BrickStorage  
 Each iteration includes steps:
 - looking for a start point of wall where can be placed a brick. Currently program considers the point as most top-left filled by 1 position of wall matrix.
 - looking for the brick type, which can be placed in this point. For non-square bricks used both orientations - vertical and horizontal.
 - when possible brick type is found, placing it on the wall, creating new wall and brick storage without selected brick.
 - all iterations is repeated for new wall and storage. 
 
-As soon as some combination leads to wall which does not contain bricks anymore, positive result is returned
-
-PS.
+As soon as some combination leads to wall which does not contain bricks anymore, positive result is returned\
 At first, it was idea to divide wall into several smaller walls if there are parts which are not connected to each other on cell side, then sort them and try to solve each wall beginning from smallest.\ 
 But later but it later became clear that it could only speed up negative solutions, but for positive will be still necessary to process the whole wall. 
+
+All application classes are located in Classes directory and loaded live using custom loader in bootstrap.php file.\ 
+Also, all errors and exceptions are handled and printed into STDERR stream. File functions contains some helpers.
 
 #### test instructions
 run environment is php 7.2.1
