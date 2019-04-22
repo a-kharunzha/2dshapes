@@ -18,8 +18,6 @@ list($wall, $bricks) = $inputProcessor->createInputObjects();
 
 /// looking for possibility of wall construction
 $wallIsPossible = false;
-// @todo: divide wall into several smaller walls if there are parts which is not connected to each other on cell side
-// then sort and try to solve each wall beginning from smallest. It will speed up solution for walls like test2
 $wallConstructor = new WallConstructor($wall, $bricks);
 $wallIsPossible = $wallConstructor->constructWall();
 

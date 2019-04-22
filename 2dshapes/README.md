@@ -49,11 +49,17 @@ Each iteration includes steps:
 
 As soon as some combination leads to wall which does not contain bricks anymore, positive result is returned
 
+PS.
+At first, it was idea to divide wall into several smaller walls if there are parts which are not connected to each other on cell side, then sort them and try to solve each wall beginning from smallest.\ 
+But later but it later became clear that it could only speed up negative solutions, but for positive will be still necessary to process the whole wall. 
+
 #### test instructions
-Root directory of application is considered containing run.php file.  
-Example test input files is placed in "input" directory.
-When running from root directory, file to input file must be relative to current working dir  
-For example 
+run environment is php 7.2.1
+
+Directory containing run.php file is considered Root directory of application\  
+Example test input files is placed in "input" directory.\
+When running from root directory, file to input file must be relative to current working dir\
+For example
 ```
 # call using file path as argument
 php run.php input/test1.txt
