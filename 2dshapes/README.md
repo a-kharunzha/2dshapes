@@ -6,6 +6,9 @@ While building the wall bricks can be put horizontally as well as vertically.
 Brick’s width and height can be from 1 to 8. The configuration of wall is not limited: it can break into
 several parts, can seem unstable, can have holes, etc.
 
+![alt text](./img/input_example.png "Wall Example")
+
+
 The description of wall and bricks is presented in simple text format and can be read from file or from
 standard input. The result of verification is printed to standard output, either "yes" (wall can be
 constructed) or "no" (wall can not be constructed). Each brick has the rectangular form and discrete
