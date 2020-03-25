@@ -9,6 +9,7 @@ $namespace = 'Shapes\\';
 spl_autoload_register(function ($class) use ($classesDir, $namespace) {
     if (strpos($class, $namespace) === 0) {
         $class = str_replace($namespace, '', $class);
+        $class = str_replace('\\', DIRECTORY_SEPARATOR, $class);
         require_once $classesDir . $class . '.php';
     }
 });

@@ -10,7 +10,7 @@ require_once __DIR__ . "/bootstrap.php";
 
 /// reading input
 $currentDir = getcwd();
-$inputFilePath = !empty($argv[1]) ? ($currentDir . '/' . $argv[1]) : null;
+$inputFilePath = !empty($argv[1]) ? ($currentDir . DIRECTORY_SEPARATOR . $argv[1]) : null;
 $inputProcessor = new InputProcessor($inputFilePath);
 
 /// parsing input data
