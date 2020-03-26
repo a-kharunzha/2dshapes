@@ -6,6 +6,7 @@
             "Model\\": "Model",
             "Command\\": "commands",
             "Test\\": "tests",
+            "Shapes\\Tests\\": "./2dshapes/Tests",
             "Shapes\\": "./2dshapes/Classes"
         },
         "files": [

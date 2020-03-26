@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Shapes\Tests\UnitTests\Classes;
+namespace Shapes\Tests\UnitTest\Classes;
 
 use PHPUnit\Framework\TestCase;
 use Shapes\Brick;
