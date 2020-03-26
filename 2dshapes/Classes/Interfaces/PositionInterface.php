@@ -1,6 +1,6 @@
 <?php
 
-namespace Shapes;
+namespace Shapes\Interfaces;
 
 interface PositionInterface
 {

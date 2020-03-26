@@ -2,6 +2,9 @@
 
 namespace Shapes;
 
+use Shapes\Interfaces\AreaInterface;
+use Shapes\Interfaces\PositionInterface;
+
 class PositionedBrick extends Brick implements AreaInterface
 {
     /**

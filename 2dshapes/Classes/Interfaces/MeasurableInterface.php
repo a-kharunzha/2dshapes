@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Shapes;
+namespace Shapes\Interfaces;
 
 /**
  * defines dimensions of matrix

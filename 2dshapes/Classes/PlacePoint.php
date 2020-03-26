@@ -2,6 +2,8 @@
 
 namespace Shapes;
 
+use Shapes\Interfaces\PositionInterface;
+
 class PlacePoint implements PositionInterface
 {
     /**

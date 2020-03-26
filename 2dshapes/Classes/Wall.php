@@ -4,6 +4,9 @@
 namespace Shapes;
 
 use Shapes\Exception\InvalidCellCoordinatesException;
+use Shapes\Interfaces\AreaInterface;
+use Shapes\Interfaces\MatrixInterface;
+use Shapes\Interfaces\MeasurableInterface;
 
 /**
  * defines size and structure of wall

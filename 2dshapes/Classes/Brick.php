@@ -3,6 +3,9 @@
 
 namespace Shapes;
 
+use Shapes\Interfaces\MatrixInterface;
+use Shapes\Interfaces\MeasurableInterface;
+
 class Brick implements MeasurableInterface, MatrixInterface
 {
     /**

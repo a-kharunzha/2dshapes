@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Shapes;
+namespace Shapes\Interfaces;
 
 interface AreaInterface extends PositionInterface, MeasurableInterface
 {
