@@ -7,5 +7,4 @@ namespace Shapes;
  */
 class NullPlacePoint extends PlacePoint
 {
-
 }

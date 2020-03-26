@@ -92,9 +92,8 @@ class InputProcessor
      *
      * @return array<int>
      */
-    static function intArr($array): array
+    protected static function intArr($array): array
     {
         return array_map('intval', $array);
     }
-
 }

@@ -4,7 +4,6 @@ namespace Shapes\InputReader;
 
 class Stdin extends InputStreamReader
 {
-
     public function __construct()
     {
         // using standard cli stream

@@ -32,6 +32,4 @@ class File extends InputStreamReader
             throw new InvalidInputFileException('File ' . $this->inputFilePath . ' does not exists');
         }
     }
-
-
 }

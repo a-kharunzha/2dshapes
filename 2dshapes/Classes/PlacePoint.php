@@ -34,5 +34,4 @@ class PlacePoint implements PositionInterface
     {
         return $this->column;
     }
-
 }
