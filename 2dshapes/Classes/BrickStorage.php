@@ -2,6 +2,8 @@
 
 namespace Shapes;
 
+use Shapes\Exception\BrickTypeNotAvailableException;
+
 class BrickStorage
 {
     /** @var []Brick */

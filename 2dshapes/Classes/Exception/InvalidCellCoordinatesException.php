@@ -1,6 +1,6 @@
 <?php
 
-namespace Shapes;
+namespace Shapes\Exception;
 
 class InvalidCellCoordinatesException extends \Exception
 {

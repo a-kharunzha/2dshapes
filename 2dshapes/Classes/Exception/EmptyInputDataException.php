@@ -1,6 +1,6 @@
 <?php
 
-namespace Shapes;
+namespace Shapes\Exception;
 
 class EmptyInputDataException extends \Exception
 {

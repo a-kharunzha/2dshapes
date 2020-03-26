@@ -3,6 +3,8 @@
 
 namespace Shapes;
 
+use Shapes\Exception\InvalidCellCoordinatesException;
+
 /**
  * defines size and structure of wall
  */

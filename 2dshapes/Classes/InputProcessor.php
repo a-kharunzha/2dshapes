@@ -2,6 +2,7 @@
 
 namespace Shapes;
 
+use Shapes\Exception\EmptyInputDataException;
 use Shapes\InputReader\InputStreamReader;
 
 class InputProcessor
