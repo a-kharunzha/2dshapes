@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ef841a36b0b08b4337dd7dc55a5b1584",
+    "content-hash": "63e3febcf2b53b659e52a044cad26b3a",
     "packages": [
         {
             "name": "cakephp/cache",
@@ -2644,16 +2644,16 @@
         },
         {
             "name": "friendsofphp/php-cs-fixer",
-            "version": "2.15.x-dev",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
-                "reference": "3849cba1d365285855f37fac453991e11aa0ca4a"
+                "reference": "f71cee9030206ce86340d408f1cc401959b41542"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/3849cba1d365285855f37fac453991e11aa0ca4a",
-                "reference": "3849cba1d365285855f37fac453991e11aa0ca4a",
+                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/f71cee9030206ce86340d408f1cc401959b41542",
+                "reference": "f71cee9030206ce86340d408f1cc401959b41542",
                 "shasum": ""
             },
             "require": {
@@ -2699,6 +2699,11 @@
                 "php-cs-fixer"
             ],
             "type": "application",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.17-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "PhpCsFixer\\": "src/"
@@ -2731,7 +2736,7 @@
                 }
             ],
             "description": "A tool to automatically fix PHP code style",
-            "time": "2020-03-10T14:52:11+00:00"
+            "time": "2020-03-10T14:56:20+00:00"
         },
         {
             "name": "maximebf/debugbar",
@@ -4277,16 +4282,16 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "3.4.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "5b4333b4010625d29580eb4a41f1e53251be6baa"
+                "reference": "7c406b75a4e53a50aa1eba2d3dda28e3d55f9cfe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/5b4333b4010625d29580eb4a41f1e53251be6baa",
-                "reference": "5b4333b4010625d29580eb4a41f1e53251be6baa",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/7c406b75a4e53a50aa1eba2d3dda28e3d55f9cfe",
+                "reference": "7c406b75a4e53a50aa1eba2d3dda28e3d55f9cfe",
                 "shasum": ""
             },
             "require": {
@@ -4324,7 +4329,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2019-03-19T03:22:27+00:00"
+            "time": "2020-03-26T03:48:01+00:00"
         },
         {
             "name": "symfony/contracts",
