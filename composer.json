@@ -5,10 +5,12 @@
             "SomeLib\\": "lib1",
             "Model\\": "Model",
             "Command\\": "commands",
-            "Test\\": "tests"
+            "Test\\": "tests",
+            "Shapes\\": "./2dshapes/Classes"
         },
         "files": [
-            "functions.php"
+            "functions.php",
+            "./2dshapes/functions.php"
         ]
     },
     "minimum-stability": "dev",
@@ -37,7 +39,8 @@
 		"filp/whoops": "^2.2@dev",
 		"maximebf/debugbar": "^1.15@dev",
 		"squizlabs/php_codesniffer": "3.4.1",
-		"friendsofphp/php-cs-fixer": "^2.15@dev"
+		"friendsofphp/php-cs-fixer": "^2.15@dev",
+		"phpstan/phpstan": "^0.12.0@dev"
 	},
     "scripts": {
         "post-update-cmd": "Core\\Base\\Helper::postUpdateComposer"
