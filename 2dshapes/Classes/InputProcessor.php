@@ -56,13 +56,13 @@ class InputProcessor
     protected function createWallObject(&$lines): Wall
     {
         // size of wall
-        list($wWidth, $wHeight) = intArr(explode(' ', array_shift($lines)));
+        list($wWidth, $wHeight) = self::intArr(explode(' ', array_shift($lines)));
         // wall structure
         $matrix = [];
         for ($i = 0; $i < $wHeight; $i++) {
             $line = array_shift($lines);
             $line = substr($line, 0, $wWidth);
-            $matrix[] = intArr(str_split($line, 1));
+            $matrix[] = self::intArr(str_split($line, 1));
         }
         return new Wall($wWidth, $wHeight, $matrix);
     }
@@ -79,10 +79,22 @@ class InputProcessor
         $bricks = new BrickStorage();
         for ($i = 0; $i < $brickTypesCount; $i++) {
             $line = array_shift($lines);
-            list($bWeight, $bHeight, $bCount) = intArr(explode(' ', $line));
+            list($bWeight, $bHeight, $bCount) = self::intArr(explode(' ', $line));
             $bricks->addBrick(new Brick($bWeight, $bHeight), $bCount);
         }
         return $bricks;
+    }
+
+    /**
+     * converts all array members to integer
+     *
+     * @param array<string> $array
+     *
+     * @return array<int>
+     */
+    static function intArr($array): array
+    {
+        return array_map('intval', $array);
     }
 
 }

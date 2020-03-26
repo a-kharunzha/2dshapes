@@ -12,18 +12,6 @@ function onError($message)
 }
 
 /**
- * converts all array members to integer
- *
- * @param $array
- *
- * @return array
- */
-function intArr($array)
-{
-    return array_map('intval', $array);
-}
-
-/**
  * writes message into standard output
  * @param $message
  */
