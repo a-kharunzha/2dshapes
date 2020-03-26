@@ -7,6 +7,7 @@ use Shapes\Exception\InvalidCellCoordinatesException;
 use Shapes\Interfaces\AreaInterface;
 use Shapes\Interfaces\MatrixInterface;
 use Shapes\Interfaces\MeasurableInterface;
+use Shapes\Interfaces\PositionInterface;
 
 /**
  * defines size and structure of wall
@@ -56,16 +57,16 @@ class Wall implements MeasurableInterface, MatrixInterface
 
     /**
      *
-     * @param int $lineNum 1-based number of matrix line
-     * @param int $column 1-based number of matrix column
+     * @param int $lineNum PositionInterface::OFFSET-based number of matrix line
+     * @param int $column PositionInterface::OFFSET-based number of matrix column
      *
      * @return bool
      * @throws InvalidCellCoordinatesException if coordinates are outside matrix
      */
     public function cellIsFilled(int $lineNum, int $column): bool
     {
-        $rowOffset = $lineNum - 1;
-        $columnOffset = $column - 1;
+        $rowOffset = $lineNum - PositionInterface::OFFSET;
+        $columnOffset = $column - PositionInterface::OFFSET;
         if (!isset($this->matrix[$rowOffset][$columnOffset])) {
             throw new InvalidCellCoordinatesException('Wall cell coordinates is invalid');
         }
@@ -85,14 +86,14 @@ class Wall implements MeasurableInterface, MatrixInterface
     {
         $newMatrix = [];
         for ($i = 0; $i < $area->getHeight(); $i++) {
-            $offsetRow = $area->getRow() - 1 + $i;
+            $offsetRow = $area->getRow() - PositionInterface::OFFSET + $i;
             // if we are trying to get rows outside matrix - they must be skipped
             if (!isset($this->matrix[$offsetRow])) {
                 continue;
             }
             $newMatrix[] = array_slice(
                 $this->matrix[$offsetRow],
-                $area->getColumn() - 1,
+                $area->getColumn() - PositionInterface::OFFSET,
                 $area->getWidth()
             );
         }
@@ -120,10 +121,10 @@ class Wall implements MeasurableInterface, MatrixInterface
     {
         $newMatrix = $this->matrix;
         for ($i = 0; $i < $area->getHeight(); $i++) {
-            $offsetRow = $area->getRow() - 1 + $i;
+            $offsetRow = $area->getRow() - PositionInterface::OFFSET + $i;
             array_splice(
                 $newMatrix[$offsetRow],
-                $area->getColumn() - 1,
+                $area->getColumn() - PositionInterface::OFFSET,
                 $area->getWidth(),
                 array_fill(0, $area->getWidth(), 0)
             );

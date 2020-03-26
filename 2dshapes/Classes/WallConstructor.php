@@ -3,6 +3,8 @@
 
 namespace Shapes;
 
+use Shapes\Interfaces\PositionInterface;
+
 class WallConstructor
 {
     /**
@@ -108,14 +110,14 @@ class WallConstructor
     {
         // @todo: make placement strategy configurable ?
         // now using top - left strategy
-        for ($lineNum = 1; $lineNum <= $this->wall->getHeight(); $lineNum++) {
-            for ($column = 1; $column <= $this->wall->getWidth(); $column++) {
+        for ($lineNum = PositionInterface::OFFSET; $lineNum <= $this->wall->getHeight(); $lineNum++) {
+            for ($column = PositionInterface::OFFSET; $column <= $this->wall->getWidth(); $column++) {
                 if ($this->wall->cellIsFilled($lineNum, $column)) {
                     return new PlacePoint($lineNum, $column);
                 }
             }
         }
-        return new NullPlacePoint(-1, -1);
+        return new NullPlacePoint(-PositionInterface::OFFSET, -PositionInterface::OFFSET);
     }
 
     /**
